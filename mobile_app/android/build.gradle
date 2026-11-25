@@ -1,0 +1,26 @@
+allprojects {
+    repositories {
+        // Verified official artifacts downloaded by tools/fetch_android_gpu.ps1 when Java cannot reach Google Maven.
+        maven {
+            url uri("../tools/maven")
+            content {
+                includeModule("com.google.ai.edge.litert", "litert-gpu")
+                includeModule("com.google.ai.edge.litert", "litert-gpu-api")
+            }
+        }
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

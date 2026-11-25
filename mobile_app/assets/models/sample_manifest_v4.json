@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "model_id": "mask-yolo11n-v4",
+  "display_name": "SafeZone Mask Detector v4 (YOLO11n)",
+  "file_name": "mask_v4.tflite",
+  "task": "detect",
+  "family": "YOLO11n",
+  "format": "tflite",
+  "sha256": "<REPLACE_WITH_ACTUAL_SHA256>",
+  "input": {
+    "width": 640,
+    "height": 640,
+    "layout": "NHWC",
+    "dtype": "float32",
+    "color": "RGB",
+    "normalization": {"mean": [0.0], "std": [255.0]}
+  },
+  "output": {
+    "layout": "BCN",
+    "shape": [1, 7, 8400],
+    "adapter": "yolo_raw",
+    "coordinates": "pixels",
+    "nms": false
+  },
+  "classes": {
+    "0": "with_mask",
+    "1": "without_mask",
+    "2": "mask_weared_incorrect"
+  },
+  "mapping": {
+    "with_mask": "compliant",
+    "without_mask": "violation",
+    "mask_weared_incorrect": "violation"
+  },
+  "export": {
+    "tool": "Ultralytics",
+    "version": "<RECORD_ACTUAL_EXPORT_VERSION>",
+    "format": "tflite",
+    "source_checkpoint": "best_mask_v4.pt"
+  },
+  "compatibility": {
+    "runtime": "litert_yolo_adapter",
+    "plugin_version": "<RECORD_ACTUAL_RUNTIME_VERSION>",
+    "validated": false,
+    "note": "Template only; units shown match the inspected v4 SavedModel export. Reinspect future models."
+  }
+}

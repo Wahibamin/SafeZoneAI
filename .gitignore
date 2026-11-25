@@ -1,0 +1,53 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.keystore
+rclone.conf
+
+# Data, checkpoints, and runtime outputs
+datasets/source/
+datasets/derived/
+datasets/**/images/
+datasets/**/labels/
+models/*.pt
+models/*.pth
+models/*.onnx
+models/*.tflite
+models/*.lite
+*.db
+*.sqlite*
+*.csv
+!evaluation/*.csv
+demo/*
+!demo/README.md
+*.log
+*.zip
+*.7z
+
+# Flutter / Android generated files and signing config
+mobile_app/.dart_tool/
+mobile_app/build/
+mobile_app/.gradle/
+mobile_app/android/.gradle/
+mobile_app/android/local.properties
+mobile_app/android/key.properties
+mobile_app/android/app/*.jks
+mobile_app/android/app/*.keystore
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
